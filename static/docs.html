@@ -308,7 +308,7 @@
                     <div class="code-block">
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                         <code># 获取模型列表
-curl -H "Authorization: Bearer 0000" {{BASE_URL}}/v1/models</code>
+curl -H "Authorization: Bearer YOUR_KEY" {{BASE_URL}}/v1/models</code>
                     </div>
 
                     <h4 style="margin-top: 15px; color: #555;">非流式聊天 (Non-Streaming)</h4>
@@ -316,7 +316,7 @@ curl -H "Authorization: Bearer 0000" {{BASE_URL}}/v1/models</code>
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                         <code>curl -X POST {{BASE_URL}}/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 0000" \
+  -H "Authorization: Bearer YOUR_KEY" \
   -d '{
     "model": "claude-sonnet-4.6",
     "messages": [{"role": "user", "content": "Hello!"}],
@@ -329,7 +329,7 @@ curl -H "Authorization: Bearer 0000" {{BASE_URL}}/v1/models</code>
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                         <code>curl -X POST {{BASE_URL}}/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 0000" \
+  -H "Authorization: Bearer YOUR_KEY" \
   -d '{
     "model": "claude-sonnet-4.6",
     "messages": [{"role": "user", "content": "Hello!"}],
@@ -342,7 +342,7 @@ curl -H "Authorization: Bearer 0000" {{BASE_URL}}/v1/models</code>
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                         <code>curl -X POST {{BASE_URL}}/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 0000" \
+  -H "Authorization: Bearer YOUR_KEY" \
   -d '{
     "model": "claude-sonnet-4.6",
     "messages": [{"role": "user", "content": "What is 2+2? Use the calculator tool."}],
@@ -384,13 +384,37 @@ KILO_TOOL_STRICT=true
                 <p>点击模型卡片可查看详细信息和使用示例</p>
 
                 <div class="models-grid" id="modelsGrid">
-                    <div class="model-card" onclick="selectModel('claude-sonnet-4.6')">
-                        <div class="model-name">claude-sonnet-4.6</div>
-                        <div class="provider">Anthropic Claude</div>
+                    <div class="model-card" onclick="selectModel('anthropic/claude-sonnet-4.6')">
+                        <div class="model-name">anthropic/claude-sonnet-4.6</div>
+                        <div class="provider">Anthropic · Base</div>
                     </div>
-                    <div class="model-card" onclick="selectModel('claude-sonnet-4.6-thinking')">
-                        <div class="model-name">claude-sonnet-4.6-thinking</div>
-                        <div class="provider">Anthropic Claude + Thinking</div>
+                    <div class="model-card" onclick="selectModel('anthropic/claude-sonnet-4.6-thinking')">
+                        <div class="model-name">anthropic/claude-sonnet-4.6-thinking</div>
+                        <div class="provider">Anthropic · Thinking</div>
+                    </div>
+                    <div class="model-card" onclick="selectModel('claude-sonnet-4-5-20250929')">
+                        <div class="model-name">claude-sonnet-4-5-20250929</div>
+                        <div class="provider">Anthropic · Base</div>
+                    </div>
+                    <div class="model-card" onclick="selectModel('claude-sonnet-4-5-20250929-thinking')">
+                        <div class="model-name">claude-sonnet-4-5-20250929-thinking</div>
+                        <div class="provider">Anthropic · Thinking</div>
+                    </div>
+                    <div class="model-card" onclick="selectModel('claude-sonnet-4-20250514')">
+                        <div class="model-name">claude-sonnet-4-20250514</div>
+                        <div class="provider">Anthropic · Base</div>
+                    </div>
+                    <div class="model-card" onclick="selectModel('claude-sonnet-4-20250514-thinking')">
+                        <div class="model-name">claude-sonnet-4-20250514-thinking</div>
+                        <div class="provider">Anthropic · Thinking</div>
+                    </div>
+                    <div class="model-card" onclick="selectModel('claude-3-5-sonnet-20241022')">
+                        <div class="model-name">claude-3-5-sonnet-20241022</div>
+                        <div class="provider">Anthropic · Base</div>
+                    </div>
+                    <div class="model-card" onclick="selectModel('claude-3-5-sonnet-20241022-thinking')">
+                        <div class="model-name">claude-3-5-sonnet-20241022-thinking</div>
+                        <div class="provider">Anthropic · Thinking</div>
                     </div>
                 </div>
 
@@ -413,7 +437,7 @@ KILO_TOOL_STRICT=true
                     <p>获取所有可用的AI模型列表</p>
                     <div class="code-block" style="margin-top: 15px;">
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
-                        <code>curl -H "Authorization: Bearer 0000" {{BASE_URL}}/v1/models</code>
+                        <code>curl -H "Authorization: Bearer YOUR_KEY" {{BASE_URL}}/v1/models</code>
                     </div>
                 </div>
 
@@ -425,7 +449,7 @@ KILO_TOOL_STRICT=true
                         <button class="copy-btn" onclick="copyCode(this)">复制</button>
                         <code>curl -X POST {{BASE_URL}}/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 0000" \
+  -H "Authorization: Bearer YOUR_KEY" \
   -d '{
     "model": "claude-sonnet-4.6",
     "messages": [
@@ -490,7 +514,7 @@ KILO_TOOL_STRICT=true
 
             const exampleCode = `curl -X POST {{BASE_URL}}/v1/chat/completions \\
   -H "Content-Type: application/json" \\
-  -H "Authorization: Bearer 0000" \\
+  -H "Authorization: Bearer YOUR_KEY" \\
   -d '{
     "model": "${modelId}",
     "messages": [
@@ -544,6 +568,33 @@ KILO_TOOL_STRICT=true
       return card.outerHTML;
     }).join('');
   }).catch(function(){});
+})();
+</script>
+
+<script>
+(function(){
+  var base = window.location.origin;
+  document.getElementById && (function(){
+    // 替换所有硬编码URL
+    document.querySelectorAll('code,pre,.value').forEach(function(el){
+      el.innerHTML = el.innerHTML.replace(/http:\/\/localhost:8\d\d\d/g, base);
+    });
+    // 动态加载模型
+    fetch('/v1/models').then(function(r){return r.json();}).then(function(d){
+      if(!d.data) return;
+      var count = d.data.length;
+      var mc = document.getElementById('modelCount');
+      if(mc) mc.textContent = count + ' 个模型';
+      var grid = document.getElementById('modelsGrid');
+      if(grid) grid.innerHTML = d.data.map(function(m){
+        var isT = m.id.indexOf('-thinking') > -1;
+        return '<div class="model-card" onclick="selectModel && selectModel('' + m.id + '')">' +
+          '<div class="model-name">' + m.id + '</div>' +
+          '<div class="provider">Anthropic</div>' +
+          '<span style="display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;margin-top:6px;background:' + (isT?'#2a1a3a':'#1a2a3a') + ';color:' + (isT?'#b794f4':'#63b3ed') + ';border:1px solid ' + (isT?'#553c9a':'#2d4a6a') + '">' + (isT?'Thinking':'Base') + '</span></div>';
+      }).join('');
+    }).catch(function(){});
+  })();
 })();
 </script>
 </body>
